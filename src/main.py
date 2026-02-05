@@ -4,6 +4,7 @@ from data_loader import build_graph_task1
 from utils import find_node_index
 from dijkstra_algo import run_dijkstra
 from lc_algo import run_label_correcting
+from max_flow_algo import run_max_flow
 
 
 def main():
@@ -67,6 +68,17 @@ def main():
             # Print if the path is different
             if len(path1) != len(path2) and len(path1) > 0:
                 print("   (Found path is different)")
+
+        print("\n" + "-" * 20 + " Task 2: Maximum Flow " + "-" * 20)
+        print("🔹 Computing Max Flow (Edmonds-Karp Algorithm)...")
+        print("   (Assumption: Distance = Link Capacity)")
+
+        t0 = time.time()
+        max_flow_val = run_max_flow(g, start_node, target_node)
+        t1 = time.time()
+
+        print(f"✅ Maximum Flow: {max_flow_val:.2f} units")
+        print(f"⏱️ Time: {t1 - t0:.6f} sec")
 
         if input("\nDo you want to continue? (y/n): ").lower() != 'y':
             break
