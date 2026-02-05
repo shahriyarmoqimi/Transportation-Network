@@ -70,7 +70,7 @@ def main():
                 print("   (Found path is different)")
 
         print("\n" + "-" * 20 + " Task 2: Maximum Flow " + "-" * 20)
-        print("🔹 Computing Max Flow (Edmonds-Karp Algorithm)...")
+        print("🔹 Computing Max Flow ...")
         print("   (Assumption: Distance = Link Capacity)")
 
         t0 = time.time()
