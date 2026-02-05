@@ -1,4 +1,5 @@
 import time
+import os
 from data_loader import build_graph_task1
 from utils import find_node_index
 from dijkstra_algo import run_dijkstra
@@ -6,7 +7,20 @@ from lc_algo import run_label_correcting
 
 
 def main():
-    g = build_graph_task1('airports.dat', 'routes.dat')
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    project_root = os.path.dirname(current_dir)
+    data_dir = os.path.join(project_root, 'data')
+
+    airports_path = os.path.join(data_dir, 'airports.dat')
+    routes_path = os.path.join(data_dir, 'routes.dat')
+
+    if not os.path.exists(airports_path) or not os.path.exists(routes_path):
+        print(f"❌ Error: Data files not found in: {data_dir}")
+        print("Please ensure structure is: Project/data/*.dat and Project/src/*.py")
+        return
+
+    g = build_graph_task1(airports_path, routes_path)
 
     print("\n--- Flight Route Optimization System ---")
 
@@ -50,7 +64,7 @@ def main():
         else:
             print(f"✅ Total distance: {dist2:.2f} km")
             print(f"⏱️ Execution time: {t1 - t0:.6f} seconds")
-            # Print if the path is different (usually they are the same)
+            # Print if the path is different
             if len(path1) != len(path2) and len(path1) > 0:
                 print("   (Found path is different)")
 
