@@ -16,3 +16,14 @@ class Graph:
             'country': country,
             'real_id': real_id
         }
+
+
+    def add_edge(self, u, v, weight=None):
+        if self.weighted:
+            self.adj[u].append((v, weight))
+            if not self.directed:
+                self.adj[v].append((u, weight))
+        else:
+            self.adj[u].append(v)
+            if not self.directed:
+                self.adj[v].append(u)
