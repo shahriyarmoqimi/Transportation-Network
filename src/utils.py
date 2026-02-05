@@ -11,3 +11,20 @@ def haversine(lon1, lat1, lon2, lat2):
     c = 2 * asin(sqrt(a))
     r = 6371
     return c * r
+
+
+def reconstruct_path(start, target, parent, dis):
+    if dis[target] >= 10 ** 9:
+        return float('inf'), []
+
+    path = []
+    curr = target
+    while curr != -1:
+        path.append(curr)
+        if curr == start: break
+        curr = parent[curr]
+
+    path.reverse()
+    return dis[target], path
+
+
