@@ -71,7 +71,7 @@ def main():
 
         print("\n" + "-" * 20 + " Task 2: Maximum Flow " + "-" * 20)
         print("🔹 Computing Max Flow ...")
-        print("   (Assumption: Distance = Link Capacity)")
+        print("   (Assumption: Capacity = Number of Flights)")
 
         t0 = time.time()
         max_flow_val = run_max_flow(g, start_node, target_node)
