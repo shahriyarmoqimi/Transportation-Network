@@ -31,9 +31,9 @@ def run_max_flow(graph, s, t):
                 v, w = item, 1
 
             if v in capacity[u]:
-                capacity[u][v] += w
+                capacity[u][v] += 1
             else:
-                capacity[u][v] = w
+                capacity[u][v] = 1
 
             if u not in capacity[v]:
                 capacity[v][u] = 0
