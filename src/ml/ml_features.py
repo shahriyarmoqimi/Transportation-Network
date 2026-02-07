@@ -11,10 +11,10 @@ def extract_features(graph, u, v):
     # feature1 sum of degree
     deg_sum = len(neighbors_u) + len(neighbors_v)
 
-    # feature2 neighbors
+    # feature2 common neighbors
     common = len(neighbors_u.intersection(neighbors_v))
 
-    # feature3 shared neighbors/all neighbors
+    # feature3 common neighbors/all neighbors
     union_len = len(neighbors_u.union(neighbors_v))
     jaccard = common / union_len if union_len > 0 else 0
 
