@@ -1,6 +1,6 @@
 from .ml_trainer import train_link_prediction_model
 from .ml_features import extract_features
-from ..utils import find_node_index
+from utils import find_node_index
 
 
 def run_ml_task(graph):
@@ -38,7 +38,7 @@ def run_ml_task(graph):
             print(f"   • Common Neighbors: {features[1]}")
             print(f"   • Jaccard Coeff: {features[2]:.4f}")
 
-            print(f"\n🧠 AI Verdict:")
+            print(f"\n🧠 AI Perdict:")
             if prob_percent > 50:
                 print(f"   ✅ CONNECTED (Probability: {prob_percent:.1f}%)")
             else:
