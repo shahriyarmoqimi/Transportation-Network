@@ -5,6 +5,7 @@ from utils import find_node_index
 from dijkstra_algo import run_dijkstra
 from lc_algo import run_label_correcting
 from max_flow_algo import run_max_flow
+from ml.ml import run_ml_task
 
 
 def main():
@@ -79,6 +80,11 @@ def main():
 
         print(f"✅ Maximum Flow: {max_flow_val:.2f} units")
         print(f"⏱️ Time: {t1 - t0:.6f} sec")
+
+        print("\n" + "-" * 20 + " Bonus Task: ML " + "-" * 20)
+        ask_ml = input("Do you want to run ML Link Prediction? (y/n): ").lower()
+        if ask_ml == 'y':
+            run_ml_task(g)
 
         if input("\nDo you want to continue? (y/n): ").lower() != 'y':
             break
